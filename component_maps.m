@@ -33,7 +33,7 @@ else
     codebook_interm=[];
     nbaxes_cumsum=cumsum(axes_per_pigment);
     for i=1:length(pigment_names)     
-    codebook_interm(:,(i-1)*9+1:(i-1)*9+9) = (sMap.codebook(:,nbaxes_cumsum(i)-liste(i)+1:nbaxes_cumsum(i))*loadings{:,nbaxes_cumsum(i)-liste(i)+1:nbaxes_cumsum(i)}'.*repmat(scale_parameter{:,i}',size(sMap.codebook,1),1))+repmat(center_parameter{:,i}',size(sMap.codebook,1),1);
+    codebook_interm(:,(i-1)*9+1:(i-1)*9+9) = (sMap.codebook(:,nbaxes_cumsum(i)-axes_per_pigment(i)+1:nbaxes_cumsum(i))*loadings{:,nbaxes_cumsum(i)-axes_per_pigment(i)+1:nbaxes_cumsum(i)}'.*repmat(scale_parameter{:,i}',size(sMap.codebook,1),1))+repmat(center_parameter{:,i}',size(sMap.codebook,1),1);
     end
     depths = ["5.0","8.35","13.92","23.23","38.75","64.63","107.81","179.85","300.0"];
     codebook = codebook_interm;
